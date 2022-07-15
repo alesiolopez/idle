@@ -1,4 +1,4 @@
-let dinero = 1000; //variable central contador
+let dinero = 100; //variable central contador
 
 //pasar a dolar un numero: Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(VARIABLE);
 // Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
