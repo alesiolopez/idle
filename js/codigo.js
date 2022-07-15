@@ -1,4 +1,4 @@
-let dinero = 100; //variable central contador
+let dinero = 6; //variable central contador
 
 //pasar a dolar un numero: Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(VARIABLE);
 // Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
@@ -7,7 +7,7 @@ let dinero = 100; //variable central contador
 
 let inventario = [0,0,0,0,0,0,0]; //array de cada actualización en 0
 let dineroProduce = [0.5,0.02,0.04,0.08,0.1,0.5,1]; //array con producción de cada actualización
-let precioProducto = [10,10,20,40,100,500,1000]; //array con el valor de cada actualización
+let precioProducto = [5,6,10,20,50,75,200]; //array con el valor de cada actualización
 let levelProducto = [0,0,0,0,0,0,0];
 let porsegundo = 0; //variable para sumar la producción total por segundo
 
@@ -47,10 +47,6 @@ function producir(){
     }
 }
 
-function monedaCorriente(moneda){
-    Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(moneda);
-}
-
 //función para poder tener la página ACTUALIZADA constantemente.
 function render(){
     //visualizar la cantidad de diner por segundo:
@@ -59,7 +55,7 @@ function render(){
     document.getElementById("porsegundo").innerHTML = "Dinero/s: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(porsegundo);
     document.getElementById("porclics").innerHTML = "Valor Billete: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
     //Estadisticas:
-    document.getElementById("inventario").innerHTML = `Billete: ${inventario[0]}<br>
+    document.getElementById("inventario").innerHTML = `Nivel Billete: ${inventario[0]}<br>
     Kioscos: ${inventario[1]}<br>
     Verdulerías: ${inventario[2]}<br>
     Almacenes: ${inventario[3]}<br>
@@ -89,7 +85,7 @@ function guardarDatos(){
 //Función de obtener los datos guardados
 function obtenerDatos(){
     if(localStorage.getItem("dinero") && localStorage.getItem("inventario")){
-        dinero = localStorage.getItem("dinero");
+        dinero = JSON.parse(localStorage.getItem("dinero"));
         inventario = JSON.parse(localStorage.getItem("inventario"));
         clic();
     } else{
