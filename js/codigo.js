@@ -1,19 +1,19 @@
-let dinero = 0; //variable central contador
+let dinero = 1000; //variable central contador
 
 //pasar a dolar un numero: Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(VARIABLE);
 // Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
 
 
 
-let inventario = [0,0,0,0,0,0]; //array de cada actualización en 0
-let dineroProduce = [1,2,4,10,50,100]; //array con producción de cada actualización
-let precioProducto = [100,200,400,1000,5000,10000]; //array con el valor de cada actualización
-
+let inventario = [0,0,0,0,0,0,0]; //array de cada actualización en 0
+let dineroProduce = [0.5,0.02,0.04,0.08,0.1,0.5,1]; //array con producción de cada actualización
+let precioProducto = [10,10,20,40,100,500,1000]; //array con el valor de cada actualización
+let levelProducto = [0,0,0,0,0,0,0];
 let porsegundo = 0; //variable para sumar la producción total por segundo
 
 //función para que sume 1 con cada clic
 function clic(){
-    dinero++;
+    dinero=dinero+dineroProduce[0];
 }
 
 //Deshabilitando botones
@@ -21,43 +21,63 @@ function clic(){
 
 //función para comprar las actualizaciones.
 function comprar(objeto){
-    if(dinero >= precioProducto[objeto]){
+    if(dinero >= precioProducto[objeto] && objeto!=0){
         inventario[objeto]++;
         dinero -= precioProducto[objeto];
-    } else {
+        //aumentar precio del producto
+        levelProducto[objeto]++;
+        precioProducto[objeto]=((precioProducto[objeto]*levelProducto[objeto])/10)+precioProducto[objeto];
+        //aumentar la producción de dinero por segundo por cada actualización que haga. En este caso vamos a aumentar 0.001 por cada actualización así cada 10 niveles aumenta 0.01
+        dineroProduce[objeto] = dineroProduce[objeto]+0.001;
+    } else if (objeto == 0 && dinero>=precioProducto[0]) {
+        inventario[objeto]++;
+        dinero -= precioProducto[0];
+        dineroProduce[0]=dineroProduce[0]+0.1;
+        levelProducto[0]++;
+        precioProducto[0]=((precioProducto[0]*levelProducto[0])/10)+precioProducto[0];
+    } else{
         document.getElementById("aviso-1").innerHTML="No tienes suficiente dinero.";
     }
 }
 
-//función para producir con un bucle for
+//función para PRODUCIR con un bucle for
 function producir(){
-    for(let contador=0; contador<inventario.length; contador++){
+    for(let contador=1; contador<inventario.length; contador++){
         dinero += inventario[contador] * dineroProduce[contador];
     }
 }
 
-//función para poder tener la página actualizada constantemente.
+function monedaCorriente(moneda){
+    Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(moneda);
+}
+
+//función para poder tener la página ACTUALIZADA constantemente.
 function render(){
-    porsegundo = (inventario[0]*1) + (inventario[1]*2) + (inventario[2]*4) + (inventario[3]*10) + (inventario[4]*50) + (inventario[5]*100);
+    //visualizar la cantidad de diner por segundo:
+    porsegundo = (inventario[1]*dineroProduce[1]) + (inventario[2]*dineroProduce[2]) + (inventario[3]*dineroProduce[3]) + (inventario[4]*dineroProduce[4]) + (inventario[5]*dineroProduce[5]) + (inventario[6]*dineroProduce[6]);
     document.getElementById("contador").innerHTML = "Dinero: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dinero);
     document.getElementById("porsegundo").innerHTML = "Dinero/s: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(porsegundo);
-    document.getElementById("inventario").innerHTML = `Kioscos: ${inventario[0]}<br>
-    Verdulerías: ${inventario[1]}<br>
-    Almacenes: ${inventario[2]}<br>
-    Carnicerías: ${inventario[3]}<br>
-    Pets Shop: ${inventario[4]}<br>
-    Supermercados: ${inventario[5]}
+    document.getElementById("porclics").innerHTML = "Valor Billete: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
+    //Estadisticas:
+    document.getElementById("inventario").innerHTML = `Billete: ${inventario[0]}<br>
+    Kioscos: ${inventario[1]}<br>
+    Verdulerías: ${inventario[2]}<br>
+    Almacenes: ${inventario[3]}<br>
+    Carnicerías: ${inventario[4]}<br>
+    Pets Shop: ${inventario[5]}<br>
+    Supermercados: ${inventario[6]}
     `;
 }
 
 //funcion para los precios
 function precios(){
-    document.getElementById("costo-1").innerText ="US$ " + precioProducto[0];
-    document.getElementById("costo-2").innerText ="US$ " + precioProducto[1];
-    document.getElementById("costo-3").innerText ="US$ " + precioProducto[2];
-    document.getElementById("costo-4").innerText ="US$ " + precioProducto[3];
-    document.getElementById("costo-5").innerText ="US$ " + precioProducto[4];
-    document.getElementById("costo-6").innerText ="US$ " + precioProducto[5];
+    document.getElementById("costo-1").innerText ="US$ " + precioProducto[0].toFixed(2);
+    document.getElementById("costo-2").innerText ="US$ " + precioProducto[1].toFixed(2);
+    document.getElementById("costo-3").innerText ="US$ " + precioProducto[2].toFixed(2);
+    document.getElementById("costo-4").innerText ="US$ " + precioProducto[3].toFixed(2);
+    document.getElementById("costo-5").innerText ="US$ " + precioProducto[4].toFixed(2);
+    document.getElementById("costo-6").innerText ="US$ " + precioProducto[5].toFixed(2);
+    document.getElementById("costo-7").innerText ="US$ " + precioProducto[6].toFixed(2);
 }
 
 //Función de guardar datos
