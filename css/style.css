@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: lightgreen;
+}
+
+.contenedor-1{
+    text-align: center;
+}
+
+.img-btn{
+border: 2px black solid;
+}
+
+.img-btn:active{
+    transform: rotate(5deg);
+}
+
+.btn1{
+    width: 150px;
+    background: lightblue;
+    margin: 5px;
+    padding: 5px;
+    border: 1px black solid;
+    border-radius: 50px;
+    
+}
+
+.btn1:hover{
+    background: lightcyan;
+    transition: background;
+    transition-duration: 0.3s;
+}
+
+.btn1:active{
+    transform: scale(1.1,1.1);
+    border: 1px red solid;
+}
+
+.desc-btn{
+    background: inherit;
+    border-radius: inherit;
+}
+
+/* notificaciones estilo */
+/* DESARROLLAR */
+
+.aviso-1{
+    position:absolute;
+    left: 0;
+    right: 0;
+    background: lightcoral;
+    /* padding: 10px; */
+}
