@@ -1,9 +1,12 @@
+//LOADER:
+//CREAR LOADER
+//FIN LOADER.
+
+//COMIENZO PROGRAMA:
 let dinero = 6; //variable central contador
 
-//pasar a dolar un numero: Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(VARIABLE);
+//pasar dar formato moneda a un numero: Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(VARIABLE);
 // Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
-
-
 
 let inventario = [0,0,0,0,0,0,0]; //array de cada actualización en 0
 let dineroProduce = [0.5,0.02,0.04,0.08,0.1,0.5,1]; //array con producción de cada actualización
@@ -51,8 +54,8 @@ function producir(){
 function render(){
     //visualizar la cantidad de diner por segundo:
     porsegundo = (inventario[1]*dineroProduce[1]) + (inventario[2]*dineroProduce[2]) + (inventario[3]*dineroProduce[3]) + (inventario[4]*dineroProduce[4]) + (inventario[5]*dineroProduce[5]) + (inventario[6]*dineroProduce[6]);
-    document.getElementById("contador").innerHTML = "Dinero: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dinero);
-    document.getElementById("porsegundo").innerHTML = "Dinero/s: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(porsegundo);
+    document.getElementById("contador").innerHTML = "Dinero total: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dinero);
+    document.getElementById("porsegundo").innerHTML = "Dinero/segundo: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(porsegundo);
     document.getElementById("porclics").innerHTML = "Valor Billete: " + Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
     //Estadisticas:
     document.getElementById("inventario").innerHTML = `Nivel Billete: ${inventario[0]}<br>

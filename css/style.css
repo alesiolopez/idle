@@ -1,20 +1,52 @@
 *{
     margin: 0;
-    padding: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: lightgreen;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(100, 100, 100);
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+h1{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white ;
+    background: black;
+}
+
+.container-stats{
+  /*   border: 4px rgb(80, 80, 80) solid;
+    margin-bottom: 10px;
+    padding: 10px; */
 }
 
 .contenedor-1{
+    position: relative;
+    display: inline-block;
+    justify-content: center;
     text-align: center;
+    border: 1px black solid;
+    max-width: 450px;
 }
 
 .img-btn{
-border: 2px black solid;
+    border: 2px black solid;
+    animation: animation1 .9s infinite alternate;
 }
 
 .img-btn:active{
-    transform: rotate(5deg);
+    transform:scale(1.1);
+}
+
+/* animation: animation1 .9s infinite alternate; */
+@keyframes animation1 {
+    to {
+        opacity: 80%;
+        transform:translate3d(0,-0.5mm,0);
+    }
 }
 
 .btn1{
@@ -24,11 +56,11 @@ border: 2px black solid;
     padding: 5px;
     border: 1px black solid;
     border-radius: 50px;
-    
 }
 
 .btn1:hover{
-    background: lightcyan;
+    cursor:pointer;
+    background: grey;
     transition: background;
     transition-duration: 0.3s;
 }
@@ -52,4 +84,17 @@ border: 2px black solid;
     right: 0;
     background: lightcoral;
     /* padding: 10px; */
+}
+
+/* ESTADISTICAS ESTILO */
+.estadisticas h3{
+    border-bottom: 2px black solid;
+    border-radius: 90%;
+}
+
+/* FOOTER ESTILO */
+.footer{
+    font-size: 12px;
+    position:sticky;
+    bottom: 0;
 }

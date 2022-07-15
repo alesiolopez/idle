@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/codigo.js"></script>
+    <link rel="icon" href="./img/dinero2-img.png">
     <link rel="stylesheet" href="./css/style.css">
-    <!-- MONEDA -->
-<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
- -->    
     <title>Clicker Dinero Prueba</title>
 </head>
 <body>
-    <div class="contenedor-1">
-        <h1 id="contador">Dinero: 0</h1>
-        <h3 id="porsegundo">Dinero/s:</h3>
-        <h3 id="porclics">Valor Billete:</h3>
+     <div class="contenedor-1">
+        <h1>Clicker Game</h1>
+        <div class="container-stats">
+            <h2 id="contador" clas>Dinero total: 0</h2>
+            <h3 id="porsegundo">Dinero/s:</h3>
+            <h3 id="porclics">Valor Billete:</h3>
+        </div>
         <img src="./img/dinero2-img.png" onclick="clic()" class="img-btn">
     <br>
     <div class="contenedor-aviso">
@@ -30,14 +30,22 @@
         <button onclick="comprar(5)" id="button" class="btn1">Pets Shop <div id="costo-6" class="desc-btn"></div></button>
         <button onclick="comprar(6)" id="button" class="btn1">Supermercado <div id="costo-7" class="desc-btn"></div></button>
 
-        <h3>Estadísticas</h3>
-        <div id="inventario"></div>
-    <br><br>
-    <!-- botones de guardado y carga de juego -->
-        <button onclick="guardarDatos()" class="btn1">Guardar datos</button>
-        <button onclick="obtenerDatos()" class="btn1">Cargar datos</button>
-    </div>
 
-    <div class="prueba"></div>
+        <div class="estadisticas">
+            <h3>Estadísticas</h3>
+            <div id="inventario"></div>
+        </div>
+        <div class="botones-save">
+            <!-- botones de guardado y carga de juego -->
+        <button onclick="guardarDatos()" class="btn1 btn-guardar">Guardar datos</button>
+        <button onclick="obtenerDatos()" class="btn1 btn-cargar">Cargar datos</button>
+        </div>
+    
+
+    <footer class="footer">
+        <address>Created by <a href="https://github.com/alesiolopez" target="_blank">Alesio López</a></address>
+    </footer>
+    </div>
+    <script src="./js/codigo.js"></script>
 </body>
 </html>
