@@ -39,7 +39,7 @@ function comprar(objeto){
         levelProducto[0]++;
         precioProducto[0]=((precioProducto[0]*levelProducto[0])/10)+precioProducto[0];
     } else{
-        document.getElementById("aviso-1").innerHTML="No tienes suficiente dinero.";
+        document.getElementById("aviso-1").innerHTML="No te alcanza la money, rey.";
     }
 }
 
@@ -68,7 +68,7 @@ function render(){
     `;
 }
 
-//funcion para los precios
+//funcion para los precios de los botones
 function precios(){
     document.getElementById("costo-1").innerText ="US$ " + precioProducto[0].toFixed(2);
     document.getElementById("costo-2").innerText ="US$ " + precioProducto[1].toFixed(2);
