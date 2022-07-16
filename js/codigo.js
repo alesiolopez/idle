@@ -83,6 +83,9 @@ function precios(){
 function guardarDatos(){
     localStorage.setItem("dinero", dinero);
     localStorage.setItem("inventario", JSON.stringify(inventario));
+    localStorage.setItem("dinero produce", JSON.stringify(dineroProduce));
+    localStorage.setItem("precio producto", JSON.stringify(precioProducto));
+    localStorage.setItem("nivel producto", JSON.stringify(levelProducto));
 }
 
 //Función de obtener los datos guardados
@@ -90,6 +93,9 @@ function obtenerDatos(){
     if(localStorage.getItem("dinero") && localStorage.getItem("inventario")){
         dinero = JSON.parse(localStorage.getItem("dinero"));
         inventario = JSON.parse(localStorage.getItem("inventario"));
+        dineroProduce = JSON.parse(localStorage.getItem("dinero produce"));
+        precioProducto = JSON.parse(localStorage.getItem("precio producto"));
+        levelProducto = JSON.parse(localStorage.getItem("nivel producto"));
         clic();
     } else{
         alert("No se encontraron datos.")
