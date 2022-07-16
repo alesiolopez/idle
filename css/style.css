@@ -33,6 +33,7 @@ h1{
 
 .img-btn:active{
     transform:scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 
 /* animation: animation1 .9s infinite alternate; */

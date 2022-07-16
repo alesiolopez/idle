@@ -107,21 +107,22 @@ function notificaciones(){
     document.getElementById("aviso-1").innerHTML = "";
 }
 
-//---------ACTUALIZACIÓN de la producción-------------
+//---------ACTUALIZACIÓN de la producción por segundo-------------
 let FPSProduce =1;
 
 setInterval(function(){
     producir();
-    precios();
 },1000/FPSProduce);
 
-//---------ACTUALIZACIÓN del render, o sea, de todos los datos de la página.
-let FPS =30;
+//---------ACTUALIZACIÓN del render, o sea, de los datos que brinda la página.
+let FPS =1000;
 
 setInterval(function(){
     render();
+    precios();
 },1000/FPS);
 
+//--------------ACTUALIZACIÓN de las notificaciones
 let FPSaviso = 0.4;
 
 setInterval(function(){
