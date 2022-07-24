@@ -9,7 +9,7 @@ let dinero = 6; //variable central contador
 // Intl.NumberFormat('USD', { style: 'currency', currency: 'USD' }).format(dineroProduce[0]);
 
 let inventario = [0,0,0,0,0,0,0]; //array de cada actualización en 0
-let dineroProduce = [0.5,0.02,0.04,0.08,0.1,0.5,1]; //array con producción de cada actualización
+let dineroProduce = [0.5,0.2,0.4,0.8,1,2,5]; //array con producción de cada actualización
 let precioProducto = [5,6,10,20,50,75,200]; //array con el valor de cada actualización
 let levelProducto = [0,0,0,0,0,0,0];
 let porsegundo = 0; //variable para sumar la producción total por segundo
